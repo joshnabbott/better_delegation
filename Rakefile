@@ -5,12 +5,12 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "better_delegation"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Extends the Object#delegate method to work better with `nil` objects.}
+    gem.description = %Q{Calling a delegated method on a nil object with better_delegation won't just return nil, it will return the default column value as specified by object being delegated to.}
     gem.email = "joshnabbott@gmail.com"
     gem.homepage = "http://github.com/joshnabbott/better_delegation"
     gem.authors = ["Josh N. Abbott"]
-    gem.add_development_dependency "rspec"
+    gem.add_development_dependency "rspec", '>= 1.0'
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 rescue LoadError
