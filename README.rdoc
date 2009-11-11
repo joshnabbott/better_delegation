@@ -1,6 +1,10 @@
 = better_delegation
 
-Description goes here.
+Better method delegation for ActiveRecord. Specifically when it comes to handling 'nil' objects.
+
+While Rails does support method delegation to a nil object, it will always return 'nil' if the object delegated to is nil.
+
+This gem will return whatever the object delegated to would return. It's especially useful for example when you have a method that would typically return 'false' (because that's what the database column default is set to). For example an `is_active` method might return false by default. When the delegating object calls `is_active` on a nil object, the nil object would return 'false', not nil.
 
 == Note on Patches/Pull Requests
  

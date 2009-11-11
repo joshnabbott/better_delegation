@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{better_delegation}
-  s.version = "0.0.0"
+  s.version = "1.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Josh N. Abbott"]
   s.date = %q{2009-11-11}
-  s.description = %q{Calling a delegated method on a nil object with better_delegation won't just return nil, it will return the default database column value. Eg. If is_active is a boolean field and it's database default value is 'false', calling the delegated method when the delegated asssociation is nil won't return nil, it will return false. This is reflected in the tests.}
+  s.description = %q{Calling a delegated method on a nil object with better_delegation won't just return nil, it will return the default column value as specified by object being delegated to.}
   s.email = %q{joshnabbott@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -23,8 +23,15 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "better_delegation.gemspec",
+     "init.rb",
+     "lib/active_support/core_ext/module/better_delegation.rb",
      "lib/better_delegation.rb",
+     "rails/init.rb",
      "spec/better_delegation_spec.rb",
+     "spec/db/database.yml",
+     "spec/db/schema.rb",
+     "spec/debug.log",
      "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/joshnabbott/better_delegation}
@@ -43,11 +50,11 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<rspec>, [">= 0"])
+      s.add_development_dependency(%q<rspec>, [">= 1.0"])
     else
-      s.add_dependency(%q<rspec>, [">= 0"])
+      s.add_dependency(%q<rspec>, [">= 1.0"])
     end
   else
-    s.add_dependency(%q<rspec>, [">= 0"])
+    s.add_dependency(%q<rspec>, [">= 1.0"])
   end
 end
